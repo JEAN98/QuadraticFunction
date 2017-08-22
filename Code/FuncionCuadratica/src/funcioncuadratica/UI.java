@@ -110,7 +110,7 @@ public class UI extends javax.swing.JFrame {
        else
          result += "Empty!";   //Soltion empty
     }
-    private float getDiscriminating(){
+   private float getDiscriminating(){
         float dis = (float)(Math.pow(b, 2))-4*a*c;
         return dis;
     }
@@ -119,6 +119,52 @@ public class UI extends javax.swing.JFrame {
         String cutY = "Corte de y: (0 , " + String.valueOf(c) + ")";
         result += "\n" + "\n";
         result += cutY;
+    }
+    
+    private void vertice(){
+        float y = -(getDiscriminating())/4*a;
+        float ejeSimetria = (float)-b/(2*a);
+        String vertex = "Vertice: ("+ejeSimetria+", "+String.valueOf(y)+")";
+        result +="\n"+"\n";
+        result += vertex;
+        
+        
+    }
+    
+    private void rank(){
+        float y = -(getDiscriminating())/4*a;
+        String rank = "El rango es: ("+y+", +∞)" ;
+        result +="\n"+"\n";
+        result += rank;
+    }
+    
+    private void rise(){
+        float y = -(getDiscriminating())/4*a;
+        String rise = "Crece de: ("+y+", +∞)" ;
+        result +="\n"+"\n";
+        result += rise;
+    
+    }
+    
+    private void decreases(){
+         float y = -(getDiscriminating())/4*a;
+        String decreases = "Decrece de: (-∞, "+y+ ")" ;
+        result +="\n"+"\n";
+        result += decreases;
+    
+    }
+    
+    private void point(){
+        if(a < 0){
+            String max = "Punto máximo.";
+            result +="\n"+"\n";
+        result += max;
+        }
+        else{
+            String min = "Punto minimo.";
+            result +="\n"+"\n";
+        result += min;
+        }
     }
    
     @SuppressWarnings("unchecked")
@@ -249,6 +295,11 @@ public class UI extends javax.swing.JFrame {
             cutInY();
             cutInX();
             getEjeSimetria();
+            vertice();
+            rank();
+            rise();
+            decreases();
+            point();
         }
         else
              result = "";
